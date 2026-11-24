@@ -1,0 +1,226 @@
+:root{
+    --wine:#9d342f;
+    --ink:#303943;
+    --gold:#b99570;
+    --text:#343943;
+    --paper:#fcfaf9;
+    --font-size:14px}*{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;
+        background:#f2efed;
+        color:var(--text);
+       
+            max-width:860px;
+            margin:24px auto;
+            padding:clamp(16px,4vw,38px);
+            background:var(--paper);
+            
+           
+            box-shadow:0 8px 35px #281a1a0b}.top{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:10px;
+            border-bottom:1px solid #e8dfd8;
+            padding-bottom:18px}.top small{letter-spacing:.06em}
+                  
+            
+            .narration {
+    white-space: pre-line;
+    line-height: 1.8;
+    font-family: Noto Sans, sans-serif;
+}
+
+/* Nhãn tên nhân vật chung */
+.speaker {
+    display: inline-block;
+    min-width: 150px;
+    padding: 4px 14px;
+    color: white;
+    font-family: Noto Sans, sans-serif;
+    font-weight: bold;
+    line-height: 1.2;
+    border-radius: 4px 0 0 4px;
+    background: linear-gradient(
+        90deg,
+        #303b48 0%,
+        #54606b 75%,
+        transparent
+    );
+}
+
+/* Nhãn Sylus - bên trái */
+.character.sylus .speaker {
+    background: linear-gradient(
+        90deg,
+        #a02821 0%,
+        #b54139 75%,
+        transparent
+    );
+}
+
+/* Căn nhãn MC sang bên phải */
+.character.mc {
+    text-align: right;
+}
+
+/* Nhãn MC */
+.character.mc .speaker {
+    background: linear-gradient(
+        270deg,
+        #a56b55 0%,
+        #c08b78 75%,
+        transparent
+    );
+    border-radius: 0 4px 4px 0;
+    text-align: right;
+}
+
+/* Khung hội thoại chung */
+.dialogue {
+    background: #eff0f6;
+    border: 1px solid #c5c9d4;
+    border-radius: 5px;
+    padding: 12px 15px;
+    white-space: pre-line ;
+    text-align: left;
+    margin-top: 6px;
+    line-height: 1.75;
+    font-family: Noto Sans, sans-serif;
+}
+
+/* Khung hội thoại MC */
+.character.mc .dialogue {
+    margin-left: 18%;
+    text-align: right;
+    }
+                     
+.choices{display:grid;gap:10px}
+    .choice{padding:12px 16px;
+                border-radius:24px;
+                border:1px solid #c6c5c8;
+                background:#fff;
+                color:var(--ink);
+                font:600 .95em noto sans,sans-serif;
+                cursor:pointer;
+                transition:background .2s,border-color .2s}
+    .choice:hover,
+    .choice:focus-visible{border-color:var(--wine);
+                background:#faefed}
+    .choice.selected{background:var(--ink);
+                color:white;
+                border-color:var(--ink)}
+    .choice-result:not(:empty){margin-top:17px;
+                border-left:3px solid var(--wine);
+                padding:18px 16px 1px;
+                background:#fff6f4;
+                border-radius:5px}
+      
+        
+        @media(max-width:600px){body{background:var(--paper)}
+        .reader{margin:0;border:0;border-radius:0;padding:16px;box-shadow:none}
+        .speaker{min-width:125px}
+        .character.mc 
+            .dialogue{margin-left:9%}
+            .dialogue{padding:11px 12px}}
+
+/* Hàng chứa avatar và hội thoại */
+.dialogue-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 6px;
+    width: 100%;
+}
+
+/* Avatar nhân vật */
+.avatar {
+    width: 0px;
+    height: 0px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #d6c5bc;
+}
+
+/* Khung thoại */
+.dialogue-row .dialogue {
+    flex: 1;
+    min-width: 0;
+    margin-top: 0;
+}
+
+/* MC: avatar bên phải */
+.character.mc .dialogue-row {
+    justify-content: flex-end;
+}
+
+/* Giữ khung thoại MC thụt vào */
+.character.mc .dialogue-row .dialogue {
+    margin-left: 18%;
+    text-align: right;
+}
+
+/* Điện thoại */
+@media (max-width: 600px) {
+    .avatar {
+        width: 42px;
+        height: 42px;
+    }
+
+    .dialogue-row {
+        gap: 8px;
+    }
+
+    .character.mc .dialogue-row .dialogue {
+        margin-left: 0;
+    }
+}
+/* Khoảng cách giữa các khối hội thoại */
+.character {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Khoảng cách giữa các đoạn dẫn truyện */
+.narration {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    line-height: 1.8;
+}
+
+/* Khoảng cách giữa nhãn tên và khung thoại */
+.dialogue-row {
+    margin-top: 8px;
+}
+
+/* Khoảng cách bên trong khung kết quả lựa chọn */
+.choice-result:not(:empty) {
+    padding: 18px 16px;
+}
+
+/* Bỏ khoảng thừa ở đầu và cuối khung lựa chọn */
+.choice-result > :first-child {
+    margin-top: 0;
+}
+
+.choice-result > :last-child {
+    margin-bottom: 0;
+}
+
+/* Điều chỉnh trên điện thoại */
+@media (max-width: 600px) {
+    .character {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .narration {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+}
+
+
+
+2. Xem trước và tùy chỉnh khoảng
