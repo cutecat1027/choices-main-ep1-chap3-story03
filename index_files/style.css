@@ -3,7 +3,7 @@
     --ink:#303943;
     --gold:#b99570;
     --text:#343943;
-    --paper:#fcfaf9;
+    --paper:transparent;
     --font-size:14px}*{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;
